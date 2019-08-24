@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Home | The Corner Bakery</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <header>
+        <h1><a href="index.html"><img src="images/brand.png" alt="The Corner Bakery" /></a></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">home</a></li>
+                <li><a href="menu.html">menu</a></li>
+                <li class="active"><a href="order.html">orders</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+
+        <h2>Place an order</h2>
+        <p>We leave our order form intentionally open so that you can feel free to request both items you’ve seen on our menu as well as request custom orders.</p>
+        <p><strong>Please allow 48 hours for us to fulfill orders.</strong>
+        </p>
+
+        <form class="grid-order-form">
+            <ul>
+                <li class="field-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" />
+                </li>
+                <li class="field-group">
+                    <label for="email">Email address</label>
+                    <input type="text" id="email" name="email" />
+                </li>
+                <li class="field-group">
+                    <label for="phone">Phone number</label>
+                    <input type="text" id="phone" name="phone" />
+                </li>
+                <li class="field-group">
+                    <label for="date">Date needed</label>
+                    <input type="text" id="date" name="date" />
+                </li>
+                <li class="field-group">
+                    <label for="order_type">Delivery or pickup</label>
+                    <ul class="radio-group">
+                        <li>
+                            <input type="radio" id="delivery" name="order_type" />Delivery
+                        </li>
+                        <li>
+                            <input type="radio" id="pickup" name="order_type" />Pickup
+                        </li>
+                    </ul>
+                </li>
+                <li class="field-group">
+                    <label for="details">Order details</label>
+                    <textarea id="details" name="details">Tell us what you'd like in your order.</textarea>
+                </li>
+            </ul>
+            <p><button type="submit" name="submit_order">Place order &raquo;</button></p>
+        </form>
+    </main>
+    <footer>
+        <p>Copyright &copy;2016 by The Corner Baker. All rights reserved.
+            <br />Designed by Jennifer Gammie and Phil Schanely.</p>
+    </footer>
+</body>
+
+</html>
