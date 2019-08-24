@@ -1,2 +1,3 @@
-# sandbox-corner-bakery
-Sandbox site for demonstrating setup in Github
+# Sandbox Corner Bakery
+
+Sandbox site for demonstrating setup in Github. More coming soon!
