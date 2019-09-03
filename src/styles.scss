@@ -1,66 +1,43 @@
-@import url("reset.css");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Teko:300,400,500,600,700");
 
+@import "vars";
+@import "reset";
+@import "mixins";
+
+@import "modules/categories";
+
 a {
-  color: #64a4a2;
+  color: $color-brand;
   font-weight: 400;
   text-decoration: none;
 }
 
 .allergies {
   text-align: center;
-}
 
-.allergies strong {
-  display: block;
+  strong {
+    display: block;
+  }
 }
 
 body {
-  font-size: 1.6rem;
-  font-family: "Open Sans", sans-serif;
+  @include type-setup($font-body, 1.6rem, 300);
   width: 1200px;
   margin: 0 auto;
 }
 
 button,
 .button {
-  background-color: #64a4a2;
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.6rem;
-  font-weight: 400;
+  background-color: $color-brand;
+  @include type-setup($font-body, 1.6rem, 400);
   text-align: center;
-  color: #fff;
+  color: $color-white;
   border: none;
   padding: 15px 25px;
   outline: none;
   display: block;
   box-sizing: border-box;
   width: 190px;
-}
-
-.categories {
-  margin-bottom: 36px;
-  display: flex;
-  justify-content: center;
-  flex-flow: row wrap;
-}
-
-.categories li {
-  text-align: center;
-  font-size: 2.3rem;
-  width: 220px;
-  margin-right: 50px;
-  margin-bottom: 36px;
-  margin-left: 50px;
-}
-
-.categories li b {
-  display: block;
-  font-family: "Teko", sans-serif;
-  font-weight: 700;
-  color: #64a4a2;
-  margin-bottom: 8px;
-  text-transform: lowercase;
 }
 
 .centered-block {
@@ -77,13 +54,14 @@ dd, dt {
 }
 
 .field-group {
-  display: flex;
+  @include flex();
+
+  label {
+    width: 150px;
+    margin-right: 25px;
+  }
 }
 
-.field-group label {
-  width: 150px;
-  margin-right: 25px;
-}
 
 form {
   margin: 50px 0;
@@ -92,12 +70,12 @@ form {
 footer {
   width: 575px;
   margin: 25px auto;
-  border-top: 2px solid #5C7C4B;
+  border-top: 2px solid $color-accent;
   padding: 20px 0 0;
-}
 
-footer p {
-  text-align: center;
+  p {
+    text-align: center;
+  }
 }
 
 h1 {
@@ -108,12 +86,10 @@ h1 {
 h2 {
   padding-bottom: 4px;
   text-align: center;
-  font-family: "Teko", sans-serif;
-  font-size: 4.3rem;
-  color: #5C7C4B;
+  @include type-setup($font-display, 4.3rem, 500);
+  color: $color-accent;
   line-height: 6.1rem;
-  font-weight: 500;
-  border-bottom: 2px solid #5C7C4B;
+  border-bottom: 2px solid $color-accent;
 }
 
 header {
@@ -121,8 +97,7 @@ header {
 }
 
 .home-container {
-  display: flex;
-  flex-flow: row wrap;
+  @include flex();
   justify-content: space-around;
 }
 
@@ -136,31 +111,30 @@ header {
 
 .home-lower-left-container {
   margin-top: 36px;
-  display: flex;
+  @include flex();
   justify-content: space-between;
-}
 
-.home-lower-left-container div {
-  width: 350px;
+  div {
+    width: 350px;
+  }
 }
 
 .hours {
   margin-bottom: 36px;
-}
 
-.hours dl {
-  padding: 24px 0;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-}
+  dl {
+    padding: 24px 0;
+    @include flex();
+    justify-content: space-around;
+  }
 
-.hours dt {
-  width: 75px;
-}
+  dt {
+    width: 75px;
+  }
 
-.hours dd {
-  width: 215px;
+  dd {
+    width: 215px;
+  }
 }
 
 html {
@@ -174,11 +148,9 @@ img {
 input, textarea {
   box-sizing: border-box;
   padding: 5px;
-  font-size: 1.6rem;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 300;
-  color: #4A4A4A;
-  border: 1px solid #4A4A4A;
+  @include type-setup($font-body, 1.6rem, 300);
+  color: $color-grey;
+  border: 1px solid $color-grey;
 }
 
 input[type="text"] {
@@ -203,27 +175,29 @@ main {
   padding: 25px 0;
 }
 
-nav a {
-  color: #4A4A4A;
-  font-weight: 300;
-}
+nav {
+  a {
+    color: $color-grey;
+    font-weight: 300;
+  }
 
-nav li {
-  margin-right: 35px;
-  margin-left: 35px;
-  text-align: center;
-  font-size: 2.3rem;
-  border-top: 3px solid transparent;
-}
+  li {
+    margin-right: 35px;
+    margin-left: 35px;
+    text-align: center;
+    font-size: 2.3rem;
+    border-top: 3px solid transparent;
 
-nav li.active a {
-  color: #C2762E;
-  font-weight: 700;
-}
+    &.active a {
+      color: $color-brand-alt;
+      font-weight: 700;
+    }
+  }
 
-nav ul {
-  display: flex;
-  justify-content: center;
+  ul {
+    @include flex();
+    justify-content: center;
+  }
 }
 
 .order-btn {
@@ -238,45 +212,43 @@ p {
 
 .products {
   margin: 50px 0 0;
-  display: flex;
-  flex-flow: row wrap;
+  @include flex();
   justify-content: center;
-}
 
-.products li {
-  text-align: center;
-  width: 175px;
-  margin-right: 12.5px;
-  margin-bottom: 40px;
-  margin-left: 12.5px;
-}
+  li {
+    text-align: center;
+    width: 175px;
+    margin-right: 12.5px;
+    margin-bottom: 40px;
+    margin-left: 12.5px;
+  }
 
-.products li b {
-  display: block;
-  font-family: "Teko", sans-serif;
-  font-size: 1.9rem;
-  font-weight: 500;
-  color: #64a4a2;
-  margin-bottom: 8px;
-  text-transform: lowercase;
+  li b {
+    display: block;
+    @include type-setup($font-display, 1.9rem, 500);
+    color: $color-brand;
+    margin-bottom: 8px;
+    text-transform: lowercase;
+  }
 }
 
 .radio-group {
-  display: flex;
+  @include flex();
   align-items: center;
+
+  li {
+    width: auto;
+    margin-right: 25px;
+    margin-bottom: 0;
+    align-items: center;
+  }
 }
 
-.radio-group li {
-  width: auto;
-  margin-right: 25px;
-  margin-bottom: 0;
-  align-items: center;
-}
 
 strong {
   font-style: italic;
   font-weight: 600;
-  color: #C2762E;
+  color: $color-brand-alt;
 }
 
 textarea {
